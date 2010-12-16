@@ -1,7 +1,7 @@
 Django Paypal Example
 =====================
 
-This repository contains the sample application demonstrating integrating Django with Paypal for the purposes of accepting subscription payments.
+This repository contains a sample store application demonstrating using Django with Paypal to sell downloadable content.
 
 ------------------------------------------
 
