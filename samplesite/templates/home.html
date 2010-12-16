@@ -1,0 +1,11 @@
+<html>
+<body>
+<p>Available Resources</p>
+<ul>
+{% for item in list %}
+<li><a href="/download/{{ item.id }}/">{{ item.name }} - ${{ item.price|floatformat:2 }}</a></li>
+{% endfor %}
+</ul>
+<a href="/accounts/profile">Your profile</a>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<html>
+<body>
+<p>Logged in as {{ user.username }}. <a href="/accounts/logout/">Logout</a></p>
+<p><b>Purchases</b></p>
+<ul>
+{% for item in list %}
+<li><a href="/download/{{ item.resource.id }}/">{{ item.resource.name }} - ${{ item.resource.price|floatformat:2 }}</a></li>
+{% endfor %}
+</ul>
+<a href="/">Purchase resource</a>
+</body>

@@ -1,0 +1,29 @@
+[
+  { 
+    "model": "sampleapp.resource",
+    "pk": 1,
+    "fields": {
+      "name": "Resource 1",
+      "location": "1.txt",
+      "price": "0.10"
+    }
+  },
+  { 
+    "model": "sampleapp.resource",
+    "pk": 2,
+    "fields": {
+      "name": "Resource 2",
+      "location": "2.txt",
+      "price": "0.20"
+    }
+  },
+  { 
+    "model": "sampleapp.resource",
+    "pk": 3,
+    "fields": {
+      "name": "Resource 3",
+      "location": "3.txt",
+      "price": "0.30"
+    }
+  }
+]

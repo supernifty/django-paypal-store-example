@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Purchase <b>{{ resource.name }}</b> for <b>${{ resource.price|floatformat:2 }}</b></p>
+<p>
+<form action="{{ paypal_url }}" method="post">
+  <input type="hidden" name="amount" value="{{ resource.price }}">
+  <input type="hidden" name="cmd" value="_xclick">
+  <input type="hidden" name="business" value="{{ paypal_email }}">
+  <input type="hidden" name="item_name" value="{{ resource.name }}">
+  <input type="hidden" name="currency_code" value="USD">
+  <input type="hidden" name="return" value="{{ paypal_return_url }}/purchased/{{ user.id }}/{{ resource.id }}/">
+  <input type="hidden" name="cancel_return" value="{{ paypal_return_url }}/">
+  <input type="image" src="http://www.paypal.com/en_AU/i/btn/x-click-but01.gif" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+</form>
+</p>
+</body>
+</html>
