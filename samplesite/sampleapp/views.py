@@ -38,12 +38,16 @@ def purchased( request, uid, id ):
     user = get_object_or_404( User, pk=uid )
     if request.REQUEST.has_key('tx'):
       tx = request.REQUEST['tx']
-      result = paypal.Verify( tx )
-      if result.success() and resource.price == result.amount(): # valid
-        purchase = models.Purchase( resource=resource, purchaser=user, tx=tx )
-        purchase.save()
-        return render_to_response('purchased.html', { 'resource': resource }, context_instance=RequestContext(request) )
-      else: # didn't validate
-        return render_to_response('error.html', { 'error': "Failed to validate payment" }, context_instance=RequestContext(request) )
+      try:
+        existing = models.Purchase.objects.get( tx=tx )
+        return render_to_response('error.html', { 'error': "Duplicate transaction" }, context_instance=RequestContext(request) )
+      except models.Purchase.DoesNotExist:
+        result = paypal.Verify( tx )
+        if result.success() and resource.price == result.amount(): # valid
+          purchase = models.Purchase( resource=resource, purchaser=user, tx=tx )
+          purchase.save()
+          return render_to_response('purchased.html', { 'resource': resource }, context_instance=RequestContext(request) )
+        else: # didn't validate
+          return render_to_response('error.html', { 'error': "Failed to validate payment" }, context_instance=RequestContext(request) )
     else: # no tx
       return render_to_response('error.html', { 'error': "No transaction specified" }, context_instance=RequestContext(request) )

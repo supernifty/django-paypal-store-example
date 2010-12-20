@@ -70,7 +70,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     # TODO - THIS MUST BE SET
-    '/media/shared/src/django-paypal-example/samplesite/templates', # site templates
+    '/media/shared/src/django-paypal-store-example/samplesite/templates', # site templates
     '/usr/lib/pymodules/python2.6/django/contrib/admin/templates', # admin templates
 )
 
@@ -84,9 +84,9 @@ INSTALLED_APPS = (
 )
 
 # TODO - THESE MUST BE SET
-RESOURCES_DIR = '/media/shared/src/django-paypal-example/samplesite/resources/'
-PAYPAL_PDT_TOKEN = '*** YOUR PDT TOKEN ***'
-PAYPAL_EMAIL = '*** YOUR PAYPAL EMAIL ***'
+RESOURCES_DIR = '/media/shared/src/django-paypal-store-example/samplesite/resources/'
+PAYPAL_PDT_TOKEN = '*** PAYPAY PDT TOKEN ***'
+PAYPAL_EMAIL = '*** PAYPAY EMAIL ***'
 PAYPAL_RETURN_URL = 'http://127.0.0.1:8000'
 
 # sandbox
