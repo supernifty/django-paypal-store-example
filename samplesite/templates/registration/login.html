@@ -8,6 +8,7 @@
 {% endif %}
 
 <form method="post" action="/accounts/login/">
+    {% csrf_token %}
 <table>
 <tr>
     <td>{{ form.username.label_tag }}</td>
